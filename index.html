@@ -84,6 +84,9 @@
 [data-theme="dark"] .foot-names span+span::before{color:#5A7068}
 [data-theme="dark"] .foot-logo{color:#F2EFE8}
 [data-theme="dark"] .foot-sub{color:#A8C0B5}
+/* LOGO adapts to theme - light default stays on white, dark suits dark bg */
+#surpriseLogo{transition:filter .35s, background .35s, border-color .35s}
+[data-theme="dark"] #surpriseLogo{background:#12211E !important; border:1px solid #2A3F38; filter:invert(1) hue-rotate(180deg) brightness(1.05) contrast(1.02)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark2);-webkit-font-smoothing:antialiased}
