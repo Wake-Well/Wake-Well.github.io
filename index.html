@@ -167,7 +167,8 @@ a{ color:inherit; text-decoration:none}
 .strip-item .si-icon{width:36px;height:36px;border-radius:10px;background:#0F241E;color:#C9B99A;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .strip-item h4{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--dark);margin-bottom:4px}
 .strip-item p{font-size:11.5px;line-height:1.5;color:#5A6A66}
-.wrap::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.35;z-index:-1;background: radial-gradient(700px 400px at 12% 8%, #EAE6DF 0%, transparent 55%), radial-gradient(600px 380px at 92% 18%, #E8EEEB 0%, transparent 58%), radial-gradient(500px 300px at 78% 92%, #F0E8DD 0%, transparent 60%)}
+@keyframes bgDrift{0%,100%{transform:translate(0,0)}25%{transform:translate(10px,8px)}50%{transform:translate(-8px,12px)}75%{transform:translate(-10px,-6px)}}
+.wrap::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.35;z-index:-1;background: radial-gradient(700px 400px at 12% 8%, #EAE6DF 0%, transparent 55%), radial-gradient(600px 380px at 92% 18%, #E8EEEB 0%, transparent 58%), radial-gradient(500px 300px at 78% 92%, #F0E8DD 0%, transparent 60%);animation:bgDrift 30s ease-in-out infinite}
 
 /* WRAP */
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
