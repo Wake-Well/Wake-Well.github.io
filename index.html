@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WakeWell — DIY Ağıllı Saat | Bio-Synch Texnologiyası</title>
+<meta name="description" content="WakeWell — DIY Ağıllı Saat. Yuxunun elmi analizi biləyinizdə. Bio-Synch texnologiyası.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FDFCFB;
+  --paper:#F8F6F1;
+  --line:#E9E5DE;
+  --dark:#0F241E;
+  --dark2:#13211E;
+  --sage:#6B8A7F;
+  --sage2:#8EA89B;
+  --sage3:#A8C0B5;
+  --sand:#C9B99A;
+  --sand2:#F7F3ED;
+  --sand3:#F3F0EB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark2);-webkit-font-smoothing:antialiased}
+a{ color:inherit; text-decoration:none}
+
+/* NAV - poster style */
+.nav{position:sticky;top:0;z-index:50;background:rgba(253,252,251,0.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--dark)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{flex-shrink:0}
+.brand-logo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--dark);letter-spacing:0.02em;line-height:1}
+.brand-logo em{font-weight:400;font-style:italic;color:var(--sage)}
+.brand-sub{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#6B8A7F;font-weight:700;margin-top:2px}
+
+/* TEAM hover menus at top */
+.team-nav{display:flex;align-items:center;gap:6px}
+.team-item{position:relative}
+.team-trigger{
+  font-family:'Inter',sans-serif;
+  font-size:13px;font-weight:600;color:#1A2E2A;
+  padding:9px 12px;border-radius:100px;
+  cursor:pointer;user-select:none;
+  display:flex;align-items:center;gap:6px;
+  border:1.4px solid transparent;transition:all .18s;
+}
+.team-trigger:hover{ background:#EEF2EF;border-color:#DDE6E1; color:var(--dark)}
+.team-trigger::after{content:"▾";font-size:10px;color:#8EA89B;transition:transform .2s}
+.team-item:hover .team-trigger::after{transform:rotate(180deg)}
+.team-dropdown{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  background:#FFFFFF;border:1.5px solid #E9E5DE;border-radius:16px;
+  padding:14px 14px 12px;min-width:260px;
+  box-shadow:0 16px 36px rgba(15,36,30,0.14),0 4px 12px rgba(0,0,0,0.06);
+  display:none;flex-direction:column;gap:4px;z-index:30;
+}
+.team-item:hover .team-dropdown{display:flex}
+.team-dropdown::before{
+  content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:12px;height:12px;background:#fff;border-left:1.5px solid #E9E5DE;border-top:1.5px solid #E9E5DE;
+}
+.dd-name{font-size:13px;font-weight:700;color:var(--dark);text-align:center;padding-bottom:8px;border-bottom:1px solid #F3F0EB;margin-bottom:4px}
+.dd-link{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:500;color:#33433F;
+  padding:8px 10px;border-radius:10px;transition:background .15s;
+}
+.dd-link:hover{background:var(--sand2);color:var(--dark)}
+.dd-link svg{flex-shrink:0}
+.dd-link span.link-text{border-bottom:1px solid transparent}
+.dd-link:hover span.link-text{border-color:#C9B99A}
+.dd-phone{font-size:13px;color:#5A6A66;display:flex;align-items:center;gap:10px;padding:8px 10px}
+.dd-phone a{color:var(--dark);font-weight:600}
+.dd-phone a:hover{text-decoration:underline}
+
+.lang{ display:flex;background:var(--sand3);border:1px solid var(--line);border-radius:100px;padding:3px;gap:2px; flex-shrink:0}
+.lang button{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.07em;padding:7px 13px;border-radius:100px;border:none;cursor:pointer;background:transparent;color:#7A8A85;transition:all .2s}
+.lang button.active{background:var(--dark);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--line);padding:14px 24px;flex-direction:column;gap:12px;box-shadow:0 12px 24px rgba(0,0,0,0.06)}
+.mobile-menu.open{display:flex}
+.mobile-team{display:flex;flex-direction:column;gap:10px}
+.mobile-team details{border:1px solid #E9E5DE;border-radius:12px;padding:10px 12px;background:#fff}
+.mobile-team summary{font-weight:600;cursor:pointer;list-style:none}
+.mobile-team summary::-webkit-details-marker{display:none}
+
+/* TOP poster header mimic */
+.top-head{max-width:1180px;margin:0 auto;padding:28px 24px 0;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.eyebrow{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#8FA39A;font-weight:700}
+.big-logo{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--dark);line-height:0.9;margin-top:8px}
+.big-logo em{font-style:italic;font-weight:400;color:var(--sage)}
+.subline{font-size:11px;color:#6F7E7A;letter-spacing:0.04em;margin-top:8px}
+.quote-card{text-align:right;max-width:300px}
+.badge{display:inline-flex;font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;background:#EEF2EF;border:1px solid #DDE6E1;padding:6px 10px;border-radius:100px;color:#5A7068;font-weight:700;margin-bottom:10px}
+.quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15.5px;color:#5A7068;line-height:1.3}
+.quote strong{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9AA8A2;margin-top:6px}
+.quote-big{font-weight:600;color:var(--dark);font-style:normal;font-size:17px}
+
+/* WRAP */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hero{display:grid;grid-template-columns:1.05fr 0.95fr;gap:36px;align-items:center;padding:28px 0 16px}
+.hero-text h1{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--dark);line-height:1.08}
+.hero-text h1 em{font-weight:400;font-style:italic;color:var(--sage)}
+.lead{font-size:14px;line-height:1.7;color:#3D4E48;margin-top:14px}
+.side-note{margin-top:14px;font-size:12.5px;line-height:1.6;color:#42524E;border-left:3px solid #B9C9C1;padding:10px 14px;background:#F9F8F6;border-radius:0 10px 10px 0}
+.hero-visual{display:flex;justify-content:center}
+.watch-card{width:360px;background:linear-gradient(180deg,#FFFFFF 0%,#F7F3ED 100%);border:1.5px solid #EAE6DD;border-radius:24px;box-shadow:0 14px 36px rgba(15,36,30,0.08),0 2px 8px rgba(0,0,0,0.04);padding:22px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}
+.watch-card::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,#E8F0EC 0%,transparent 70%);opacity:0.8}
+.stats{width:100%;display:flex;flex-direction:column;gap:10px;margin-top:12px;position:relative;z-index:2}
+.stat{ background:#fff;border:1.4px solid #EAE6DD;border-radius:14px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.stat .lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8FA39A;font-weight:600}
+.stat .val{font-size:17px;font-weight:700;color:var(--dark)}
+.flow{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#9AA8A2;font-weight:700;margin-top:10px;text-align:center}
+
+/* section label */
+.sec-label{display:flex;align-items:center;gap:14px;margin:26px 0 16px}
+.sec-label span{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9AA8A2;font-weight:700;white-space:nowrap}
+.sec-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#E9E5DE,transparent)}
+
+/* components 2x2 */
+.comps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.comp{background:#fff;border:1.6px solid var(--dark);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 4px 16px rgba(15,36,30,0.05);transition:transform .18s}
+.comp:hover{transform:translateY(-2px)}
+.comp.dark{background:linear-gradient(135deg,#0F241E 0%,#19332C 100%);border-color:var(--dark);color:#E8EEEB}
+.ctop{display:flex;gap:12px;align-items:flex-start}
+.icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;border:1.4px solid #EAE6DD;background:#F9EDEE;flex-shrink:0}
+.icon.green{background:#EEF2EF;border-color:#DDE6E1}
+.icon.beige{background:#FFF8E8;border-color:#F0E6C8}
+.comp.dark .icon{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.15)}
+.ctitle h3{font-family:'Manrope',sans-serif;font-size:13.5px;font-weight:700;color:var(--dark);line-height:1.2}
+.comp.dark h3{color:#fff}
+.ctitle p{font-size:9.5px;letter-spacing:0.09em;text-transform:uppercase;color:#8FA39A;font-weight:600;margin-top:3px}
+.comp.dark p{color:#A8C0B5}
+.cdesc{font-size:12.5px;line-height:1.6;color:#4A5E57}
+.comp.dark .cdesc{color:#D0DDD8}
+.tag{align-self:flex-start;font-size:8.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 10px;border-radius:100px;background:var(--dark);color:#fff}
+.comp.dark .tag{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.15)}
+
+/* bottom */
+.bottom{display:grid;grid-template-columns:1.15fr 0.85fr;gap:16px;margin-top:16px}
+.info{background:#fff;border:1.5px solid #EAE6DD;border-radius:18px;padding:22px}
+.info h4{font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.info h4::before{content:"";width:22px;height:2px;background:var(--sage2);border-radius:10px}
+.measures{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.measures li{font-size:12.5px;color:#33433F;display:flex;gap:8px;line-height:1.4}
+.measures li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage2);margin-top:6px;flex-shrink:0}
+.mini-flow{display:flex;align-items:center;gap:6px;margin-top:16px;background:#fff;border:1px solid #EAE6DD;border-radius:100px;padding:8px 10px;justify-content:space-between}
+.mini-flow b{font-size:9px;color:var(--dark)}
+.mini-flow span{font-size:8px;color:#8A9A95;letter-spacing:0.04em;text-transform:uppercase}
+.mini-flow .arr{color:var(--sand)}
+.note{background:linear-gradient(180deg,#FFFBF2 0%,#FFFFFF 100%);border:1.5px solid #EDE6D9;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.note h4{font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark);display:flex;align-items:center;gap:8px}
+.note h4::before{content:"";width:22px;height:2px;background:var(--sand);border-radius:10px}
+.note p{font-size:12.5px;line-height:1.6;color:#5A6A66}
+.callout{background:#fff;border:1.4px solid #EDE6D9;border-radius:12px;padding:12px 14px;font-size:12px}
+
+/* footer */
+.footer{margin-top:30px;background:var(--dark);color:#E8EEEB;padding:22px 24px}
+.foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.foot-lbl{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage2);font-weight:600}
+.foot-names{font-size:13px;color:#fff;font-weight:600;display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}
+.foot-names span{position:relative}
+.foot-names span+span::before{content:"•";position:absolute;left:-10px;color:#5A7068}
+.foot-right{text-align:right}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700}
+.foot-sub{font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:var(--sage2);margin-top:2px}
+
+@media(max-width:980px){
+  .team-nav{display:none}
+  .hamburger{display:block}
+  .top-head{flex-direction:column;align-items:flex-start}
+  .quote-card{text-align:left}
+  .hero{grid-template-columns:1fr;gap:20px}
+  .comps{grid-template-columns:1fr}
+  .bottom{grid-template-columns:1fr}
+  .measures{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-logo">Wake<span>Well</span></div>
+      <div class="brand-sub" data-i18n="nav_sub">DIY Ağıllı Saat — Bio-Synch Texnologiyası</div>
+    </div>
+
+    <!-- 3 names with hover dropdowns -->
+    <div class="team-nav" aria-label="Team">
+      <!-- Eldar -->
+      <div class="team-item">
+        <div class="team-trigger">Eldar Hamidov</div>
+        <div class="team-dropdown">
+          <div class="dd-name">Eldar Hamidov</div>
+          <a class="dd-link" href="https://www.instagram.com/eldar_hamidov09?stkn=bmdtcTJob2g2NG4=" target="_blank" rel="noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C" stroke="none"/></svg>
+            <span class="link-text">instagram</span>
+          </a>
+          <a class="dd-link" href="https://www.youtube.com/@EldarBuildLab" target="_blank" rel="noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000"><path d="M23 12s0-3.55-.46-5.27a1.5 1.5 0 0 0-1.04-1.05C19.78 5.16 12 5.16 12 5.16s-7.78 0-9.5.52A1.5 1.5 0 0 0 1.46 6.73C1 8.45 1 12 1 12s0 3.55.46 5.27a1.5 1.5 0 0 0 1.04 1.05c1.72.52 9.5.52 9.5.52s7.78 0 9.5-.52a1.5 1.5 0 0 0 1.04-1.05C23 15.55 23 12 23 12zm-13.2 3.4V8.6L16.2 12z"/></svg>
+            <span class="link-text">youtube — @EldarBuildLab</span>
+          </a>
+          <a class="dd-link" href="https://eldarbio.github.io/" target="_blank" rel="noreferrer">
+            <img src="logo-eldar.svg" width="18" height="18" alt="" style="border-radius:4px">
+            <span class="link-text">eldarbio.github.io</span>
+          </a>
+          <div class="dd-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B8A7F" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.18 12a19.8 19.8 0 0 1-3.07-8.63A2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.12 1.08.38 2.14.77 3.15a2 2 0 0 1-.57 2.11L8.09 9.2a16 16 0 0 0 6.71 6.71l1.22-1.22a2 2 0 0 1 2.11-.57c1.01.39 2.07.65 3.15.77A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+994557506425">+994 55 750 64 25</a>
+          </div>
+        </div>
+      </div>
+      <!-- Məhəmməd Cəfərli -->
+      <div class="team-item">
+        <div class="team-trigger">Məhəmməd Cəfərli</div>
+        <div class="team-dropdown">
+          <div class="dd-name">Məhəmməd Cəfərli</div>
+          <a class="dd-link" href="https://www.instagram.com/m_jafarli1907?stkn=MXdyMHp5bnl4Y2kz" target="_blank" rel="noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C" stroke="none"/></svg>
+            <span class="link-text">instagram</span>
+          </a>
+          <div class="dd-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B8A7F" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.18 12a19.8 19.8 0 0 1-3.07-8.63A2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.12 1.08.38 2.14.77 3.15a2 2 0 0 1-.57 2.11L8.09 9.2a16 16 0 0 0 6.71 6.71l1.22-1.22a2 2 0 0 1 2.11-.57c1.01.39 2.07.65 3.15.77A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+994773704420">+994 77 370 44 20</a>
+          </div>
+        </div>
+      </div>
+      <!-- Məhəmməd İsmayıl -->
+      <div class="team-item">
+        <div class="team-trigger">Məhəmməd İsmayıl</div>
+        <div class="team-dropdown">
+          <div class="dd-name">Məhəmməd İsmayıl</div>
+          <a class="dd-link" href="https://www.instagram.com/ismayiloff1001?stkn=MXZsemNsNGg5c3c4NA==" target="_blank" rel="noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E1306C" stroke="none"/></svg>
+            <span class="link-text">instagram</span>
+          </a>
+          <div class="dd-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B8A7F" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.18 12a19.8 19.8 0 0 1-3.07-8.63A2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.12 1.08.38 2.14.77 3.15a2 2 0 0 1-.57 2.11L8.09 9.2a16 16 0 0 0 6.71 6.71l1.22-1.22a2 2 0 0 1 2.11-.57c1.01.39 2.07.65 3.15.77A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+994773704420">+994 77 370 44 20</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="lang" role="tablist" aria-label="Language">
+        <button class="active" data-lang="az">AZE</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F241E" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-team">
+      <details>
+        <summary>Eldar Hamidov ▾</summary>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <a href="https://www.instagram.com/eldar_hamidov09?stkn=bmdtcTJob2g2NG4=" target="_blank">instagram</a>
+          <a href="https://www.youtube.com/@EldarBuildLab" target="_blank">youtube — @EldarBuildLab</a>
+          <a href="https://eldarbio.github.io/" target="_blank">eldarbio.github.io</a>
+          <a href="tel:+994557506425">+994 55 750 64 25</a>
+        </div>
+      </details>
+      <details>
+        <summary>Məhəmməd Cəfərli ▾</summary>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <a href="https://www.instagram.com/m_jafarli1907?stkn=MXdyMHp5bnl4Y2kz" target="_blank">instagram</a>
+          <a href="tel:+994773704420">+994 77 370 44 20</a>
+        </div>
+      </details>
+      <details>
+        <summary>Məhəmməd İsmayıl ▾</summary>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <a href="https://www.instagram.com/ismayiloff1001?stkn=MXZsemNsNGg5c3c4NA==" target="_blank">instagram</a>
+          <a href="tel:+994773704420">+994 77 370 44 20</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
+
+<div class="top-head">
+  <div>
+    <div class="eyebrow" data-i18n="eyebrow">Tələbə İnnovasiya Layihəsi — DIY Ağıllı Saat</div>
+    <div class="big-logo">Wake<em>Well</em></div>
+    <div class="subline" data-i18n="hero_tagline">Yuxunu anlamaq üçün ağıllı bilərzik · Bio-Synch Texnologiyası</div>
+  </div>
+  <div class="quote-card">
+    <div class="badge" data-i18n="badge">Poster · 60 × 80 sm</div>
+    <div class="quote">
+      <span data-i18n="q1">“Necə saat yatdım?” deyil,</span><br>
+      <span class="quote-big" data-i18n="q2">“Necə yatdım?”</span> <span data-i18n="q3">sualına cavab verir.</span>
+      <strong data-i18n="q_sub">Yuxunun keyfiyyəti — kəmiyyətdən önəmlidir</strong>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h1 data-i18n="hero_h1">Yuxu elmi artıq<br><em>biləyinizdə</em></h1>
+      <p class="lead" data-i18n="hero_p1">Yuxu sağlam həyatın təməlidir. <strong>WakeWell</strong> onu sadəcə saatla deyil, mərhələlərin harmoniyası kimi oxuyur — biometrik siqnallar və hərəkət analizi ilə REM, yüngül və dərin fazaları fərqləndirir, səhər oyanışı daha təbii edir.</p>
+      <div class="side-note" data-i18n="hero_note">Biləyə taxılan kiçik qurğu gecə boyu dinləyir, öyrənir və təhlil üçün hazır dataya çevirir. Fokus <strong>“Nə qədər yatdım?”</strong> deyil, <strong>“Nə keyfiyyətdə yatdım?”</strong> — fərq buradadır.</div>
+    </div>
+    <div class="hero-visual">
+      <div class="watch-card">
+        <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+          <rect x="52" y="6" width="36" height="22" rx="6" fill="#EAE6DF" stroke="#DDD8CF" stroke-width="1.2"/>
+          <rect x="52" y="112" width="36" height="22" rx="6" fill="#EAE6DF" stroke="#DDD8CF" stroke-width="1.2"/>
+          <rect x="28" y="22" width="84" height="96" rx="20" fill="#0F241E"/>
+          <rect x="32" y="26" width="76" height="88" rx="16" fill="#19332C"/>
+          <rect x="40" y="36" width="60" height="66" rx="12" fill="#0B1C18"/>
+          <circle cx="70" cy="56" r="13" stroke="#8EA89B" stroke-width="1.4"/>
+          <circle cx="70" cy="56" r="8.5" stroke="#C9B99A" stroke-width="1" stroke-dasharray="3 3"/>
+          <path d="M70 50 L70 56 L75 59.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M48 76 L54 76 L56 72 L59 82 L62 76 L66 76" stroke="#E8AFAF" stroke-width="1.25" stroke-linecap="round"/>
+          <path d="M74 76 L78 76 L80 72 L83 82 L86 76 L92 76" stroke="#8EA89B" stroke-width="1.25" stroke-linecap="round"/>
+          <rect x="48" y="86" width="44" height="13" rx="6.5" fill="rgba(255,255,255,0.08)"/>
+          <text x="70" y="95" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" font-weight="700" fill="#A8C0B5">WAKEWELL</text>
+        </svg>
+        <div class="stats">
+          <div class="stat"><span class="lbl" data-i18n="s1">Ürək döyüntüsü</span><span class="val">72 bpm</span></div>
+          <div class="stat"><span class="lbl" data-i18n="s2">Yuxu mərhələsi</span><span class="val">REM 23%</span></div>
+          <div class="stat"><span class="lbl" data-i18n="s3">Ağıllı oyanış</span><span class="val">07:30</span></div>
+        </div>
+        <div class="flow" data-i18n="flow">Biləyə taxılır → Toplanır → Analiz → Oyanış</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-label"><span data-i18n="sec_comps">Komponentlər və Funksiyaları</span></div>
+
+  <section class="comps" id="components">
+    <div class="comp">
+      <div class="ctop">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.2-4.1-8.5-7.8C1.3 9.6 2.8 4.8 7.2 4.8c2 0 3.3 1 4.8 2.7C13.5 5.8 14.8 4.8 16.8 4.8 21.2 4.8 22.7 9.6 20.5 13.2 18.2 16.9 12 21 12 21z" stroke="#C07A7A" stroke-width="1.6" fill="#F9E8E8"/><path d="M3 12h3l1.5-3 2 6 1.5-3H15l1 2h5" stroke="#C07A7A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ctitle"><h3 data-i18n="c1_t">Nəbz Sensoru</h3><p>PPG — FOTOPLETİZMOQRAFİYA</p></div>
+      </div>
+      <p class="cdesc" data-i18n="c1_d">Dəri üzərindən işıqla qan axınını izləyir, ürək ritminin gecə profilini qurur. Dərin və REM fazalarının ehtimalını qiymətləndirmək üçün əsas <strong>biometrik siqnal</strong> kimi istifadə olunur.</p>
+      <span class="tag">BİOMETRİK · HRV</span>
+    </div>
+    <div class="comp">
+      <div class="ctop">
+        <div class="icon green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7.5" stroke="#6B8A7F" stroke-width="1.5" fill="#EEF2EF"/><path d="M12 5v2.5 M12 16.5V19 M5 12h2.5 M16.5 12H19" stroke="#6B8A7F" stroke-width="1.2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.1" fill="#6B8A7F"/></svg></div>
+        <div class="ctitle"><h3 data-i18n="c2_t">MPU6050 6-Oxlu</h3><p>GY-521 · AKSELEROMETR + GİROSKOP</p></div>
+      </div>
+      <p class="cdesc" data-i18n="c2_d">Biləyin mikro-hərəkətlərini və çevrilmələrini 6 oxda qeydə alır. Sakit və aktiv intervalları ayıraraq <strong>yuxuya dalma və yüngül yuxu anlarını</strong> aşkarlamağa kömək edir.</p>
+      <span class="tag">6-AXİS · HƏRƏKƏT</span>
+    </div>
+    <div class="comp">
+      <div class="ctop">
+        <div class="icon beige"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 9.2a5 5 0 0 1 10 0c0 2-1.3 3.7-2.6 5H9.6C8.3 12.9 7 11.2 7 9.2z" stroke="#C9B99A" stroke-width="1.4" fill="#FFF6DE"/><path d="M9.6 14.2h4.8v1a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4v-1z" fill="#EADDC4" stroke="#C9B99A" stroke-width="1.2"/></svg></div>
+        <div class="ctitle"><h3>Buzzer</h3><p data-i18n="c3_sub">AĞILLI OYATMA SİSTEMİ</p></div>
+      </div>
+      <p class="cdesc" data-i18n="c3_d">Yuxu analizindən çıxış edərək <strong>ən yüngül fazada</strong> incə səs/vibrasiya ilə oyadır — sərt zəngin yaratdığı ağırlığı azaldır, günə daha ayıq başlamağa şərait yaradır.</p>
+      <span class="tag" data-i18n="c3_tag">ZƏRİF OYATMA</span>
+    </div>
+    <div class="comp dark">
+      <div class="ctop">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="2.5" stroke="white" stroke-width="1.4"/><rect x="8.5" y="8.5" width="7" height="7" rx="1.2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)"/></svg></div>
+        <div class="ctitle"><h3>ESP32-C3 SuperMini</h3><p data-i18n="c4_sub">LAYİHƏNİN BEYNİ</p></div>
+      </div>
+      <p class="cdesc" data-i18n="c4_d">Bütün sensorlardan axan datanı toplayıb yadda saxlayan və emal edən mərkəz. Aşağı enerji, Wi-Fi/Bluetooth və kiçik ölçü ilə bilək üçün ideal — <strong style="color:#fff">datadan mənaya körpü.</strong></p>
+      <span class="tag">MƏRKƏZİ İDARƏETMƏ</span>
+    </div>
+  </section>
+
+  <section class="bottom" id="system">
+    <div class="info">
+      <h4 data-i18n="sys_t">Sistem nəyi izləyir</h4>
+      <ul class="measures">
+        <li data-i18n="m1">Ümumi yuxu müddəti</li>
+        <li data-i18n="m2">Yuxuya dalma / oyanma anı</li>
+        <li data-i18n="m3">Hərəkət intervalları</li>
+        <li data-i18n="m4">Oyanma ehtimalı pəncərələri</li>
+        <li data-i18n="m5">HRV — ürək ritmi dəyişkənliyi</li>
+        <li data-i18n="m6">Mərhələlər üzrə ehtimal payı</li>
+      </ul>
+      <div class="mini-flow">
+        <div><b data-i18n="f1b">Taxılır</b><br><span data-i18n="f1s">Bilək</span></div><span class="arr">→</span>
+        <div><b data-i18n="f2b">Toplanır</b><br><span data-i18n="f2s">Sensor</span></div><span class="arr">→</span>
+        <div><b data-i18n="f3b">Analiz</b><br><span data-i18n="f3s">ESP32-C3</span></div><span class="arr">→</span>
+        <div><b data-i18n="f4b">Oyanış</b><br><span>Buzzer</span></div>
+      </div>
+    </div>
+    <div class="note">
+      <h4 data-i18n="note_t">Elmi yanaşma & Üstünlük</h4>
+      <p data-i18n="note_p">Adi saat “8 saat yatdın” deyib keçir. <strong>WakeWell</strong> isə siqnalları birlikdə oxuyur — tək rəqəm yox, mənzərə təqdim edir.</p>
+      <div class="callout" data-i18n="note_q">Qeyd: Biləkdən PPG + hərəkətlə REM-i klinik dəqiqliklə demək mümkün deyil — bizdə REM <strong>təxmini / alqoritmik dəyərləndirmə</strong> kimi verilir. Daha dürüst, daha elmi.</div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="team">
+  <div class="foot-inner">
+    <div>
+      <div class="foot-lbl" data-i18n="foot_lbl">Layihə Müəllifləri</div>
+      <div class="foot-names"><span>Eldar Həmidov</span><span>Məhəmməd Cəfərli</span><span>Məhəmməd İsmayıl</span></div>
+    </div>
+    <div class="foot-right">
+      <div class="foot-logo">WakeWell</div>
+      <div class="foot-sub">Bio-Synch Smart Watch · DIY Ağıllı Saat</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const dict={
+az:{
+ nav_sub:"DIY Ağıllı Saat — Bio-Synch Texnologiyası",
+ eyebrow:"Tələbə İnnovasiya Layihəsi — DIY Ağıllı Saat",
+ hero_tagline:"Yuxunu anlamaq üçün ağıllı bilərzik · Bio-Synch Texnologiyası",
+ badge:"Poster · 60 × 80 sm",
+ q1:"“Necə saat yatdım?” deyil,",
+ q2:"“Necə yatdım?”",
+ q3:"sualına cavab verir.",
+ q_sub:"Yuxunun keyfiyyəti — kəmiyyətdən önəmlidir",
+ hero_h1:"Yuxu elmi artıq<br><em>biləyinizdə</em>",
+ hero_p1:"Yuxu sağlam həyatın təməlidir. <strong>WakeWell</strong> onu sadəcə saatla deyil, mərhələlərin harmoniyası kimi oxuyur — biometrik siqnallar və hərəkət analizi ilə REM, yüngül və dərin fazaları fərqləndirir, səhər oyanışı daha təbii edir.",
+ hero_note:"Biləyə taxılan kiçik qurğu gecə boyu dinləyir, öyrənir və təhlil üçün hazır dataya çevirir. Fokus <strong>“Nə qədər yatdım?”</strong> deyil, <strong>“Nə keyfiyyətdə yatdım?”</strong> — fərq buradadır.",
+ s1:"Ürək döyüntüsü",s2:"Yuxu mərhələsi",s3:"Ağıllı oyanış",flow:"Biləyə taxılır → Toplanır → Analiz → Oyanış",
+ sec_comps:"Komponentlər və Funksiyaları",
+ c1_t:"Nəbz Sensoru",c1_d:"Dəri üzərindən işıqla qan axınını izləyir, ürək ritminin gecə profilini qurur. Dərin və REM fazalarının ehtimalını qiymətləndirmək üçün əsas <strong>biometrik siqnal</strong> kimi istifadə olunur.",
+ c2_t:"MPU6050 6-Oxlu",c2_d:"Biləyin mikro-hərəkətlərini və çevrilmələrini 6 oxda qeydə alır. Sakit və aktiv intervalları ayıraraq <strong>yuxuya dalma və yüngül yuxu anlarını</strong> aşkarlamağa kömək edir.",
+ c3_sub:"AĞILLI OYATMA SİSTEMİ",c3_d:"Yuxu analizindən çıxış edərək <strong>ən yüngül fazada</strong> incə səs/vibrasiya ilə oyadır — sərt zəngin yaratdığı ağırlığı azaldır, günə daha ayıq başlamağa şərait yaradır.",c3_tag:"ZƏRİF OYATMA",
+ c4_sub:"LAYİHƏNİN BEYNİ",c4_d:"Bütün sensorlardan axan datanı toplayıb yadda saxlayan və emal edən mərkəz. Aşağı enerji, Wi-Fi/Bluetooth və kiçik ölçü ilə bilək üçün ideal — <strong style='color:#fff'>datadan mənaya körpü.</strong>",
+ sys_t:"Sistem nəyi izləyir",m1:"Ümumi yuxu müddəti",m2:"Yuxuya dalma / oyanma anı",m3:"Hərəkət intervalları",m4:"Oyanma ehtimalı pəncərələri",m5:"HRV — ürək ritmi dəyişkənliyi",m6:"Mərhələlər üzrə ehtimal payı",
+ f1b:"Taxılır",f1s:"Bilək",f2b:"Toplanır",f2s:"Sensor",f3b:"Analiz",f3s:"ESP32-C3",f4b:"Oyanış",
+ note_t:"Elmi yanaşma & Üstünlük",note_p:"Adi saat “8 saat yatdın” deyib keçir. <strong>WakeWell</strong> isə siqnalları birlikdə oxuyur — tək rəqəm yox, mənzərə təqdim edir.",
+ note_q:"Qeyd: Biləkdən PPG + hərəkətlə REM-i klinik dəqiqliklə demək mümkün deyil — bizdə REM <strong>təxmini / alqoritmik dəyərləndirmə</strong> kimi verilir. Daha dürüst, daha elmi.",
+ foot_lbl:"Layihə Müəllifləri"
+},
+en:{
+ nav_sub:"DIY Smart Watch — Bio-Synch Technology",
+ eyebrow:"Student Innovation Project — DIY Smart Watch",
+ hero_tagline:"Smart bracelet to understand your sleep · Bio-Synch Technology",
+ badge:"Poster · 60 × 80 cm",
+ q1:"Not “How many hours did I sleep?”,",
+ q2:"“How did I sleep?”",
+ q3:"is the question it answers.",
+ q_sub:"Quality matters more than quantity",
+ hero_h1:"The science of sleep —<br><em>on your wrist</em>",
+ hero_p1:"Sleep is the foundation of healthy life. <strong>WakeWell</strong> reads it not as a clock but as harmony of stages — using biometric signals and motion analysis to distinguish REM, light and deep phases and to make waking feel natural.",
+ hero_note:"A small wrist device listens all night, learns and turns raw signals into analyzable data. Focus is not <strong>“How long did I sleep?”</strong> but <strong>“How well did I sleep?”</strong> — that is the difference.",
+ s1:"Heart rate",s2:"Sleep stage",s3:"Smart wake",flow:"Wear → Collect → Analyze → Wake",
+ sec_comps:"Components & Functions",
+ c1_t:"Pulse Sensor",c1_d:"Tracks blood flow optically through skin and builds the overnight heart rhythm profile. Used as the core <strong>biometric signal</strong> to estimate deep and REM likelihood.",
+ c2_t:"MPU6050 6-Axis",c2_d:"Records micro-movements and turns on 6 axes. By separating calm and active intervals it helps detect <strong>sleep onset and light-sleep windows</strong>.",
+ c3_sub:"SMART WAKE SYSTEM",c3_d:"Based on analysis it wakes with a gentle sound/vibration in the <strong>lightest phase</strong> — reducing grogginess from harsh alarms and starting the day clearer.",c3_tag:"GENTLE WAKE",
+ c4_sub:"THE BRAIN",c4_d:"Central hub that gathers, stores and processes all sensor streams. Low power, Wi-Fi/Bluetooth and tiny size make it ideal for the wrist — <strong style='color:#fff'>from data to meaning.</strong>",
+ sys_t:"What the system tracks",m1:"Total sleep time",m2:"Sleep onset / wake moment",m3:"Movement intervals",m4:"Likely wake windows",m5:"HRV — heart rhythm variability",m6:"Stage probability distribution",
+ f1b:"Wear",f1s:"Wrist",f2b:"Gather",f2s:"Sensors",f3b:"Analyze",f3s:"ESP32-C3",f4b:"Wake",
+ note_t:"Scientific approach & Edge",note_p:"A regular watch just says “8 hours”. <strong>WakeWell</strong> reads signals together — not a single number, but a full picture.",
+ note_q:"Note: REM cannot be claimed with clinical accuracy from wrist PPG + motion — we present REM as an <strong>estimate / algorithmic assessment</strong>. More honest, more scientific.",
+ foot_lbl:"Project Authors"
+}
+};
+function setLang(l){
+ document.documentElement.lang=l;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{
+   const k=el.getAttribute('data-i18n');
+   if(dict[l][k]!==undefined) el.innerHTML=dict[l][k];
+ });
+ document.querySelectorAll('.lang button').forEach(b=>{const a=b.dataset.lang===l; b.classList.toggle('active',a)});
+ localStorage.setItem('wakewell_lang',l);
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+const saved=localStorage.getItem('wakewell_lang'); if(saved&&dict[saved]) setLang(saved); else setLang('az');
+</script>
+</body>
+</html>

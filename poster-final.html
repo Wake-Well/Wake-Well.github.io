@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WakeWell — Poster 60×80</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 600mm 800mm; margin: 0; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#E8E6E1;}
+  /* page container for screen preview */
+  .page{
+    width: 2268px; /* 60cm at 96dpi + margin */
+    height: 3024px; /* 80cm at 96dpi */
+    margin: 0 auto;
+    background:#FDFCFB;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,0,0,0.15);
+  }
+  /* header */
+  .header{
+    padding: 64px 72px 38px;
+    border-bottom: 3px solid #1A2E2A;
+    background:#FDFCFB;
+  }
+  .brand{
+    font-family:'Cormorant Garamond',serif;
+    font-size: 108px;
+    font-weight:700;
+    letter-spacing:0.01em;
+    color:#0F241E;
+    line-height:0.9;
+  }
+  .brand em{font-weight:400;font-style:italic;color:#6B8A7F; letter-spacing:0.02em;}
+  .brand-sub{
+    font-family:'Inter',sans-serif;
+    font-size:22px;
+    letter-spacing:0.18em;
+    color:#6B8A7F;
+    font-weight:600;
+    margin-top:14px;
+  }
+  /* main grid */
+  .main{
+    flex:1;
+    display:grid;
+    grid-template-columns: 1.02fr 1.08fr;
+    gap:0;
+  }
+  .col-left{
+    padding: 48px 52px 40px 72px;
+    border-right:1.5px solid #E9E5DE;
+    display:flex;
+    flex-direction:column;
+    gap: 28px;
+    background:#FDFCFB;
+  }
+  .col-right{
+    padding: 44px 72px 40px 52px;
+    background:#FEFEFD;
+    display:flex;
+    flex-direction:column;
+    gap: 22px;
+  }
+  /* left titles */
+  .left-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;
+    line-height:1.05;
+    color:#0F241E;
+    font-weight:700;
+  }
+  .left-title em{
+    font-style:italic;
+    font-weight:400;
+    color:#6B8A7F;
+    display:block;
+  }
+  .left-text{
+    font-family:'Inter',sans-serif;
+    font-size:23px;
+    line-height:1.65;
+    color:#3D4E48;
+  }
+  .left-text strong{color:#0F241E;font-weight:700}
+  .left-note{
+    border-left:4px solid #B9C9C1;
+    padding:14px 20px;
+    font-family:'Inter',sans-serif;
+    font-size:20px;
+    line-height:1.6;
+    color:#4A5E57;
+    background:transparent;
+  }
+  .left-note strong{color:#0F241E}
+  /* watch card left */
+  .watch-card{
+    background:#F7F3EE;
+    border:1.5px solid #EAE6DF;
+    border-radius:28px;
+    padding:28px 24px 20px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:22px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  }
+  .watch-visual{
+    flex-shrink:0;
+    width:210px;
+    display:flex;
+    justify-content:center;
+  }
+  .watch-metrics{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .metric{
+    background:#FFFFFF;
+    border:1.5px solid #EAE6DF;
+    border-radius:16px;
+    padding:16px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.03);
+  }
+  .metric-label{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    letter-spacing:0.08em;
+    color:#8A9A93;
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .metric-value{
+    font-family:'Inter',sans-serif;
+    font-size:24px;
+    font-weight:700;
+    color:#0F241E;
+  }
+  .watch-flow{
+    text-align:center;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:#9AA8A2;
+    font-weight:600;
+    margin-top:4px;
+  }
+  /* sistem card */
+  .sistem-card{
+    background:#11261F;
+    border-radius:22px;
+    padding:28px 30px;
+    color:#E8EEEB;
+  }
+  .sistem-title{
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    letter-spacing:0.16em;
+    color:#8EA89B;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+  .sistem-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 28px;
+    list-style:none;
+  }
+  .sistem-grid li{
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    line-height:1.4;
+    color:#E8EEEB;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:400;
+  }
+  .sistem-grid li::before{
+    content:"";
+    width:9px;height:9px;
+    background:#8EA89B;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  /* right header */
+  .comp-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    font-family:'Inter',sans-serif;
+    font-size:19px;
+    letter-spacing:0.16em;
+    font-weight:700;
+    color:#0F241E;
+  }
+  .comp-header::after{content:"";flex:1;height:1.5px;background:#E9E5DE}
+  .comp-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .comp-card{
+    background:#FFFFFF;
+    border:1.8px solid #1A2E2A;
+    border-radius:24px;
+    padding:26px 24px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.04);
+  }
+  .comp-card.dark{
+    background:linear-gradient(135deg,#0F241E 0%,#1B332C 100%);
+    border-color:#0F241E;
+    color:#E8EEEB;
+  }
+  .comp-top{display:flex;gap:14px;align-items:flex-start}
+  .icon-box{
+    width:54px;height:54px;
+    border-radius:14px;
+    background:#F9EDEE;
+    border:1.5px solid #F0DDDE;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .icon-box.green{background:#EEF2EF;border-color:#DDE6E1}
+  .icon-box.beige{background:#FDF6E8;border-color:#F0E6C8}
+  .dark .icon-box{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.14)}
+  .comp-title h3{
+    font-family:'Inter',sans-serif;
+    font-size:19px;
+    font-weight:700;
+    line-height:1.2;
+    color:#0F241E;
+  }
+  .dark .comp-title h3{color:#fff}
+  .comp-title p{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:#8FA39A;
+    font-weight:600;
+    margin-top:4px;
+    text-transform:uppercase;
+  }
+  .dark .comp-title p{color:#A8C0B5}
+  .comp-desc{
+    font-family:'Inter',sans-serif;
+    font-size:16.5px;
+    line-height:1.6;
+    color:#4A5E57;
+  }
+  .dark .comp-desc{color:#D0DDD8}
+  .comp-desc strong{color:#0F241E}
+  .dark .comp-desc strong{color:#fff}
+  .comp-tag{
+    margin-top:auto;
+    align-self:flex-start;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    padding:9px 14px;
+    border-radius:100px;
+    background:#0F241E;
+    color:#fff;
+  }
+  .dark .comp-tag{background:rgba(255,255,255,0.14);color:#E8EEEB;border:1px solid rgba(255,255,255,0.15)}
+  .comp-tag.light-dark{background:#0F241E;color:#fff}
+  /* elmi box */
+  .elmi-box{
+    background:#FFFBF2;
+    border:1.5px solid #EDE6D9;
+    border-radius:20px;
+    padding:24px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .elmi-title{
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    letter-spacing:0.1em;
+    font-weight:700;
+    color:#8A7A52;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .elmi-text{
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    color:#5A6A66;
+  }
+  .elmi-text strong{color:#0F241E}
+  .qeyd-box{
+    background:#FFFFFF;
+    border:1.5px solid #EDE6D9;
+    border-radius:14px;
+    padding:18px 20px;
+    font-family:'Inter',sans-serif;
+    font-size:16.5px;
+    line-height:1.6;
+    color:#3D4E48;
+  }
+  .qeyd-box strong{color:#0F241E}
+  /* footer */
+  .footer{
+    background:#0F241E;
+    padding:26px 72px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#E8EEEB;
+  }
+  .foot-left-label{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:#8EA89B;
+    font-weight:600;
+  }
+  .foot-names{
+    font-family:'Inter',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    display:flex;
+    gap:18px;
+    margin-top:6px;
+  }
+  .foot-names span{position:relative}
+  .foot-names span+span::before{content:"•";position:absolute;left:-11px;color:#5A7068}
+  .foot-right{text-align:right}
+  .foot-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:0.03em;
+    line-height:1;
+  }
+  .foot-logo em{font-weight:400;font-style:italic;color:#A8C0B5}
+  .foot-sub{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:#8EA89B;
+    font-weight:500;
+    margin-top:4px;
+    text-transform:uppercase;
+  }
+
+  @media print{
+    html,body{background:#fff}
+    .page{box-shadow:none;margin:0;width:600mm;height:800mm}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="brand">Wake <em>Well</em></div>
+    <div class="brand-sub">DIY AĞILLI SAAT — BİO-SYNCH TEXNOLOGİYASI</div>
+  </header>
+
+  <div class="main">
+    <div class="col-left">
+      <div>
+        <div class="left-title">Yuxunun elmi <em>təhlili biləyinizdə</em></div>
+        <p class="left-text" style="margin-top:22px">
+          Müasir dövrdə yuxu insan sağlamlığı və gündəlik fəaliyyət üçün həlledici əhəmiyyət daşıyır. <strong>WakeWell</strong> yuxuya yalnız müddət kimi deyil, müxtəlif mərhələlərin vəhdəti kimi yanaşır — REM, yüngül və dərin yuxu dövrlərini biometrik və hərəkət göstəriciləri əsasında təhlil edir.
+        </p>
+        <div class="left-note" style="margin-top:20px">
+          Cihaz biləyə taxılır, gecə boyu sensorlar vasitəsilə məlumat toplayır və toplanan verilənləri analiz edilə bilən formaya gətirən elektron-proqram sistemi kimi fəaliyyət göstərir. Sual: <strong>"Necə saat yatdım?"</strong> deyil, <strong>"Necə yatdım?"</strong>
+        </div>
+      </div>
+
+      <div>
+        <div class="watch-card">
+          <div class="watch-visual">
+            <svg width="168" height="174" viewBox="0 0 120 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="38" y="6" width="44" height="20" rx="7" fill="#EAE6DF" stroke="#DDD8CF" stroke-width="1.3"/>
+              <rect x="38" y="100" width="44" height="20" rx="7" fill="#EAE6DF" stroke="#DDD8CF" stroke-width="1.3"/>
+              <rect x="12" y="20" width="96" height="86" rx="22" fill="#11261F" stroke="#1B332C" stroke-width="1.6"/>
+              <rect x="16" y="24" width="88" height="78" rx="18" fill="#19302A"/>
+              <rect x="24" y="34" width="72" height="58" rx="12" fill="#0B1C18" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <circle cx="60" cy="52" r="13" stroke="#8EA89B" stroke-width="1.5" opacity="0.95"/>
+              <circle cx="60" cy="52" r="8.5" stroke="#C9B99A" stroke-width="1" stroke-dasharray="3 3" opacity="0.75"/>
+              <path d="M60 46 L60 52 L65 55.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M36 72 L44 72 L46.5 66 L50 78 L53 72 L58 72" stroke="#E8AFAF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 72 L66 72 L68.5 66 L72 78 L75 72 L84 72" stroke="#8EA89B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="36" y="82" width="48" height="13" rx="6.5" fill="rgba(255,255,255,0.08)"/>
+              <text x="60" y="91" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" fill="#A8C0B5" letter-spacing="0.07em">WAKEWELL</text>
+              <rect x="108" y="48" width="5" height="18" rx="2.5" fill="#2E4A42"/>
+              <rect x="108" y="72" width="5" height="12" rx="2.5" fill="#2E4A42"/>
+            </svg>
+          </div>
+          <div class="watch-metrics">
+            <div class="metric"><span class="metric-label">ÜRƏK DÖYÜNTÜSÜ</span><span class="metric-value">72 bpm</span></div>
+            <div class="metric"><span class="metric-label">YUXU MƏRHƏLƏSİ</span><span class="metric-value">REM 23%</span></div>
+            <div class="metric"><span class="metric-label">AĞILLI OYANIŞ</span><span class="metric-value">07:30</span></div>
+          </div>
+        </div>
+        <div class="watch-flow">BİLƏYƏ TAXILIR → TOPLANIR → ANALİZ → OYANIŞ</div>
+      </div>
+
+      <div class="sistem-card">
+        <div class="sistem-title">SİSTEM NƏYİ ÖLÇÜR</div>
+        <ul class="sistem-grid">
+          <li>Ümumi yuxu müddəti</li>
+          <li>Yuxuya getmə / oyanma vaxtı</li>
+          <li>Hərəkət intervalları</li>
+          <li>Oyanma ehtimalı dövrləri</li>
+          <li>Ürək döyüntüsü (HRV)</li>
+          <li>Yuxu mərhələləri təxmini</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-right">
+      <div class="comp-header">KOMPONENTLƏR VƏ FUNKSİYALARI</div>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-top">
+            <div class="icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.2-4.1-8.5-7.8C1.3 9.6 2.8 4.8 7.2 4.8c2 0 3.3 1 4.8 2.7C13.5 5.8 14.8 4.8 16.8 4.8 21.2 4.8 22.7 9.6 20.5 13.2 18.2 16.9 12 21 12 21z" stroke="#C07A7A" stroke-width="1.6" fill="#F9E8E8"/><path d="M3 12h3l1.5-3 2 6 1.5-3H15l1 2h5" stroke="#C07A7A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="comp-title">
+              <h3>Nəbz Sensoru</h3>
+              <p>PPG — FOTOPLETİZMOQRAFİYA</p>
+            </div>
+          </div>
+          <p class="comp-desc">Optik ölçmə üsulu ilə dəri üzərindən qan axınının yaratdığı işıq dəyişikliklərini qeydə alır. Ürək döyüntüsünün tezliyini və gecə ərzində dəyişmə dinamikasını ölçür. Dərin yuxu və REM mərhələlərinin təxminində əsas <strong>biometrik göstərici</strong> kimi çıxış edir.</p>
+          <span class="comp-tag">BİOMETRİK · HRV</span>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-top">
+            <div class="icon-box green">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7.5" stroke="#6B8A7F" stroke-width="1.5" fill="#EEF2EF"/><path d="M12 4.5v3 M12 16.5v3 M4.5 12h3 M16.5 12h3" stroke="#6B8A7F" stroke-width="1.2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.2" fill="#6B8A7F"/></svg>
+            </div>
+            <div class="comp-title">
+              <h3>MPU6050 6-Oxlu</h3>
+              <p>GY-521 · AKSELEROMETR + GİROSKOP</p>
+            </div>
+          </div>
+          <p class="comp-desc">Biləyin hərəkətini, bədən dinamikasını və yuxu zamanı çevrilmələri 3 oxlu akselerometr və 3 oxlu giroskopla izləyir. Hərəkətli və sakit intervalları ayırd edərək <strong>yuxuya getmə, oyanma və yüngül yuxu dövrlərini</strong> müəyyənləşdirməyə imkan verir.</p>
+          <span class="comp-tag">6-AXİS · HƏRƏKƏT</span>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-top">
+            <div class="icon-box beige">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 0 1 12 0c0 2.5-1.5 4.5-3 6H9c-1.5-1.5-3-3.5-3-6z" stroke="#C9B99A" stroke-width="1.5" fill="#FDF6E8"/><path d="M9 15h6v1a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1z" fill="#EADDC4" stroke="#C9B99A" stroke-width="1.2"/></svg>
+            </div>
+            <div class="comp-title">
+              <h3>Buzzer</h3>
+              <p>AĞILLI OYATMA SİSTEMİ</p>
+            </div>
+          </div>
+          <p class="comp-desc">Yuxu mərhələlərinin analizinə əsasən <strong>ən yüngül yuxu fazasında</strong> yumşaq səs və ya vibrasiya ilə oyatma siqnalı verir. Kəskin oyatma nəticəsində yaranan yorğunluğu azaldır, səhər daha gümrah və rahat oyanmağı təmin edir.</p>
+          <span class="comp-tag">ZƏRİF OYATMA</span>
+        </div>
+
+        <div class="comp-card dark">
+          <div class="comp-top">
+            <div class="icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="2.5" stroke="white" stroke-width="1.4" opacity="0.95"/><rect x="8.5" y="8.5" width="7" height="7" rx="1.2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)"/><circle cx="12" cy="12" r="1.2" fill="#C9B99A"/></svg>
+            </div>
+            <div class="comp-title">
+              <h3>ESP32-C3 SuperMini</h3>
+              <p>LAYİHƏNİN BEYNİ</p>
+            </div>
+          </div>
+          <p class="comp-desc">Bütün sensorlardan gələn məlumatları toplayan, yadda saxlayan və emal edən mərkəzi idarəetmə bloku. Az enerji sərfiyyatı, Wi-Fi/Bluetooth dəstəyi və kompakt ölçüsü ilə biləyə taxılan cihaz üçün ideal həll — <strong>analiz edilə bilən formaya gətirir.</strong></p>
+          <span class="comp-tag">MƏRKƏZİ İDARƏETMƏ</span>
+        </div>
+      </div>
+
+      <div class="elmi-box">
+        <div class="elmi-title">★ ELMİ YANAŞMA & ÜSTÜNLÜK</div>
+        <p class="elmi-text">Adi saat yalnız <em>"8 saat yatmısınız"</em> deyir. <strong>WakeWell</strong> göstəricilərin birlikdə analizinə əsaslanır.</p>
+        <div class="qeyd-box">
+          <strong>Qeyd:</strong> Biləkdən PPG + hərəkətlə REM klinik dəqiqliklə ölçülmür — sistemdə REM <strong>təxmini / alqoritmik qiymətləndirmə</strong> kimi nəzərdə tutulur.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <div class="foot-left-label">LAYİHƏ MÜƏLLİFLƏRİ</div>
+      <div class="foot-names">
+        <span>Eldar Həmidov</span>
+        <span>Məhəmməd Cəfərli</span>
+        <span>Məhəmməd İsmayıl</span>
+      </div>
+    </div>
+    <div class="foot-right">
+      <div class="foot-logo">Wake<em>Well</em></div>
+      <div class="foot-sub">BİO-SYNCH SMART WATCH · DIY AĞILLI SAAT</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
