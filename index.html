@@ -23,6 +23,60 @@
   --sand2:#F7F3ED;
   --sand3:#F3F0EB;
 }
+/* THEME */
+.theme-btn{width:38px;height:38px;border-radius:100px;border:1.4px solid var(--line);background:var(--sand3);color:var(--dark);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.theme-btn:hover{transform:rotate(15deg) scale(1.05);border-color:var(--sage2)}
+.theme-btn svg{width:16px;height:16px}
+[data-theme="dark"]{
+  --cream:#0A1512;
+  --paper:#111F1C;
+  --line:#2A3F38;
+  --dark:#F2EFE8;
+  --dark2:#E6EFEC;
+  --sand2:#1B2E28;
+  --sand3:#1E342E;
+}
+[data-theme="dark"] body{background:var(--cream);color:var(--dark2)}
+[data-theme="dark"] .nav{background:rgba(10,21,18,0.96);border-bottom-color:#1E342E}
+[data-theme="dark"] .brand-logo{color:var(--dark)}
+[data-theme="dark"] .team-trigger{color:#D0DDD8}
+[data-theme="dark"] .team-trigger:hover{background:#1B2E28;border-color:#2A3F38;color:#fff}
+[data-theme="dark"] .team-dropdown{background:#12211E;border-color:#2A3F38}
+[data-theme="dark"] .team-dropdown::before{background:#12211E;border-color:#2A3F38}
+[data-theme="dark"] .dd-name{color:#fff;border-color:#1E342E}
+[data-theme="dark"] .dd-link{color:#C8D8D2}
+[data-theme="dark"] .dd-link:hover{background:#1B2E28;color:#fff}
+[data-theme="dark"] .dd-phone{color:#8EA89B}
+[data-theme="dark"] .dd-phone a{color:#fff}
+[data-theme="dark"] .lang{background:#1E342E;border-color:#2A3F38}
+[data-theme="dark"] .theme-btn{background:#1E342E;border-color:#2A3F38;color:#E8EEEB}
+[data-theme="dark"] .hamburger svg{stroke:#E8EEEB}
+[data-theme="dark"] .mobile-menu{background:var(--cream);border-color:#2A3F38}
+[data-theme="dark"] .mobile-team details{background:#12211E;border-color:#2A3F38;color:#E8EEEB}
+[data-theme="dark"] .eyebrow{color:#8EA89B}
+[data-theme="dark"] .big-logo{color:#F2EFE8}
+[data-theme="dark"] .subline{color:#8EA89B}
+[data-theme="dark"] .quote{color:#A8C0B5}
+[data-theme="dark"] .quote-big{color:#F2EFE8}
+[data-theme="dark"] .quote strong{color:#7A9A90}
+[data-theme="dark"] .wrap::before{opacity:0.18}
+[data-theme="dark"] .hero-text h1{color:#F2EFE8}
+[data-theme="dark"] .lead{color:#B8CFC7}
+[data-theme="dark"] .side-note{color:#C8D8D2;background:#12211E;border-left-color:#2A3F38}
+[data-theme="dark"] .watch-card{background:linear-gradient(180deg,#12211E 0%,#0F1E1B 100%);border-color:#2A3F38}
+[data-theme="dark"] .stat{background:#0A1512;border-color:#2A3F38}
+[data-theme="dark"] .stat .val{color:#fff}
+[data-theme="dark"] .flow{color:#7A9A90}
+[data-theme="dark"] .sec-label span{color:#7A9A90}
+[data-theme="dark"] .sec-label::after{background:linear-gradient(90deg,#2A3F38,transparent)}
+[data-theme="dark"] .comp{background:#12211E;border-color:#2A3F38;box-shadow:0 4px 16px rgba(0,0,0,0.25)}
+[data-theme="dark"] .comp .ctitle h3{color:#fff}
+[data-theme="dark"] .cdesc{color:#B8CFC7}
+[data-theme="dark"] .info{background:#12211E;border-color:#2A3F38}
+[data-theme="dark"] .info h4{color:#fff}
+[data-theme="dark"] .measures li{color:#C8D8D2}
+[data-theme="dark"] .mini-flow{background:#0A1512;border-color:#2A3F38}
+[data-theme="dark"] .mini-flow b{color:#fff}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark2);-webkit-font-smoothing:antialiased}
@@ -271,6 +325,10 @@ a{ color:inherit; text-decoration:none}
     </div>
 
     <div style="display:flex;gap:10px;align-items:center">
+      <button id="themeBtn" class="theme-btn" aria-label="Toggle dark mode" title="Dark / Light">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <div class="lang" role="tablist" aria-label="Language">
         <button class="active" data-lang="az">AZE</button>
         <button data-lang="en">EN</button>
@@ -321,10 +379,7 @@ a{ color:inherit; text-decoration:none}
       <span class="quote-big" data-i18n="q2">“Necə yatdım?”</span> <span data-i18n="q3">sualına cavab verir.</span>
       <strong data-i18n="q_sub">Yuxunun keyfiyyəti — kəmiyyətdən önəmlidir</strong>
     </div>
-    <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
-      <span style="font-size:10px;letter-spacing:0.06em;background:#0F241E;color:#fff;padding:6px 10px;border-radius:100px;font-weight:700" data-i18n="pill1">Bio-Synch • Real data</span>
-      <span style="font-size:10px;letter-spacing:0.06em;background:#F7F3ED;border:1px solid #EAE6DD;color:#5A6A66;padding:6px 10px;border-radius:100px;font-weight:600" data-i18n="pill2">ESP32-C3 • PPG + IMU</span>
-    </div>
+
   </div>
 </div>
 
@@ -506,6 +561,21 @@ function setLang(l){
 }
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 const saved=localStorage.getItem('wakewell_lang'); if(saved&&dict[saved]) setLang(saved); else setLang('az');
+// THEME - dark / light
+(function(){
+  const btn=document.getElementById('themeBtn');
+  const sun=btn.querySelector('.icon-sun'), moon=btn.querySelector('.icon-moon');
+  function apply(t){
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('wakewell_theme', t);
+    if(t==='dark'){ sun.style.display='none'; moon.style.display='block'; }
+    else { sun.style.display='block'; moon.style.display='none'; }
+  }
+  const stored=localStorage.getItem('wakewell_theme');
+  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  apply(stored || (prefersDark ? 'dark' : 'light'));
+  btn.addEventListener('click',()=> apply(document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'));
+})();
 // SURPRISE: extend i18n
 Object.assign(dict.az,{demo_t:"Canlı simulyasiya — bir gecənin hekayəsi",demo_p:"Saatın üzərinə toxun — qrafik canlı yenilənəcək. 3 gecə, 3 fərqli yuxu.",n1:"Gecə 1 — ideal",n2:"Gecə 2 — narahat",n3:"Gecə 3 — REM gecikməsi",legend_rem:"REM",legend_deep:"Dərin",legend_hr:"HRV dalğası"});
 Object.assign(dict.en,{demo_t:"Live simulation — story of a night",demo_p:"Tap the watch — the hypnogram animates. 3 nights, 3 different sleeps.",n1:"Night 1 — ideal",n2:"Night 2 — restless",n3:"Night 3 — late REM",legend_rem:"REM",legend_deep:"Deep",legend_hr:"HRV wave"});
