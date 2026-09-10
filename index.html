@@ -571,21 +571,34 @@ function setLang(l){
 }
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 const saved=localStorage.getItem('wakewell_lang'); if(saved&&dict[saved]) setLang(saved); else setLang('az');
-// THEME - dark / light
-(function(){
-  const btn=document.getElementById('themeBtn');
-  const sun=btn.querySelector('.icon-sun'), moon=btn.querySelector('.icon-moon');
-  function apply(t){
-    document.documentElement.setAttribute('data-theme', t);
-    localStorage.setItem('wakewell_theme', t);
-    if(t==='dark'){ sun.style.display='none'; moon.style.display='block'; }
-    else { sun.style.display='block'; moon.style.display='none'; }
-  }
-  const stored=localStorage.getItem('wakewell_theme');
-  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-  apply(stored || (prefersDark ? 'dark' : 'light'));
-  btn.addEventListener('click',()=> apply(document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'));
-})();
+// THEME - dark / light - robust
+function initTheme(){
+  try{
+    const btn=document.getElementById('themeBtn');
+    if(!btn){ console.warn('themeBtn not found'); return; }
+    const sun=btn.querySelector('.icon-sun'), moon=btn.querySelector('.icon-moon');
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      try{ localStorage.setItem('wakewell_theme', t); }catch(e){}
+      if(sun && moon){
+        if(t==='dark'){ sun.style.display='none'; moon.style.display='block'; }
+        else { sun.style.display='block'; moon.style.display='none'; }
+      }
+      // also update body for CSS fallback
+      document.body.setAttribute('data-theme', t);
+    }
+    let stored=null; try{ stored=localStorage.getItem('wakewell_theme'); }catch(e){}
+    let prefersDark=false; try{ prefersDark=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; }catch(e){}
+    apply(stored || (prefersDark ? 'dark' : 'light'));
+    btn.addEventListener('click', function(){
+      const cur=document.documentElement.getAttribute('data-theme');
+      apply(cur==='dark' ? 'light' : 'dark');
+    });
+    // also allow keyboard
+    btn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); btn.click(); }});
+  }catch(e){ console.error('theme init failed', e); }
+}
+if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initTheme); } else { initTheme(); }
 // SURPRISE: extend i18n
 Object.assign(dict.az,{demo_t:"Canlı simulyasiya — bir gecənin hekayəsi",demo_p:"Saatın üzərinə toxun — qrafik canlı yenilənəcək. 3 gecə, 3 fərqli yuxu.",n1:"Gecə 1 — ideal",n2:"Gecə 2 — narahat",n3:"Gecə 3 — REM gecikməsi",legend_rem:"REM",legend_deep:"Dərin",legend_hr:"HRV dalğası"});
 Object.assign(dict.en,{demo_t:"Live simulation — story of a night",demo_p:"Tap the watch — the hypnogram animates. 3 nights, 3 different sleeps.",n1:"Night 1 — ideal",n2:"Night 2 — restless",n3:"Night 3 — late REM",legend_rem:"REM",legend_deep:"Deep",legend_hr:"HRV wave"});
