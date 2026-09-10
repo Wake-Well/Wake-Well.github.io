@@ -23,88 +23,6 @@
   --sand2:#F7F3ED;
   --sand3:#F3F0EB;
 }
-/* THEME */
-.theme-btn{width:38px;height:38px;border-radius:100px;border:1.4px solid var(--line);background:var(--sand3);color:var(--dark);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0;position:relative;z-index:10}
-.theme-btn:hover{transform:rotate(15deg) scale(1.05);border-color:var(--sage2)}
-.theme-btn:active{transform:scale(0.95)}
-.theme-btn svg{width:16px;height:16px;pointer-events:none}
-[data-theme="dark"]{
-  --cream:#091210;
-  --paper:#111F1C;
-  --line:#2A3F38;
-  --dark:#F2EFE8;
-  --dark2:#DDE8E2;
-  --sage:#8EA89B;
-  --sand2:#1B2E28;
-  --sand3:#1E342E;
-}
-[data-theme="dark"] body{background:var(--cream) !important;color:var(--dark2)}
-[data-theme="dark"] body, [data-theme="dark"] .nav, [data-theme="dark"] .comp, [data-theme="dark"] .info, [data-theme="dark"] .stat, [data-theme="dark"] .watch-card, [data-theme="dark"] .side-note{transition:background .35s, color .35s, border-color .35s}
-[data-theme="dark"] .nav{background:rgba(9,18,16,0.98) !important;border-bottom-color:#1E342E}
-[data-theme="dark"] .nav-inner{background:transparent}
-[data-theme="dark"] .brand-logo{color:#F2EFE8 !important}
-[data-theme="dark"] .brand-logo em{color:#8EA89B}
-[data-theme="dark"] .brand-sub{color:#8EA89B !important}
-[data-theme="dark"] .team-trigger{color:#C8D8D2 !important}
-[data-theme="dark"] .team-trigger:hover{background:#1B2E28 !important;border-color:#2A3F38 !important;color:#fff !important}
-[data-theme="dark"] .team-dropdown{background:#12211E !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .team-dropdown::before{background:#12211E !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .dd-name{color:#F2EFE8 !important;border-color:#1E342E !important}
-[data-theme="dark"] .dd-link{color:#C8D8D2 !important}
-[data-theme="dark"] .dd-link:hover{background:#1B2E28 !important;color:#fff !important}
-[data-theme="dark"] .dd-phone{color:#8EA89B !important}
-[data-theme="dark"] .dd-phone a{color:#E8EEEB !important}
-[data-theme="dark"] .lang{background:#1E342E !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .lang button{color:#8EA89B}
-[data-theme="dark"] .lang button.active{background:#C9B99A !important;color:#0A1512 !important}
-[data-theme="dark"] .theme-btn{background:#1E342E !important;border-color:#2A3F38 !important;color:#F2EFE8 !important}
-[data-theme="dark"] .hamburger svg{stroke:#F2EFE8 !important}
-[data-theme="dark"] .mobile-menu{background:var(--cream) !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .mobile-team details{background:#12211E !important;border-color:#2A3F38 !important;color:#E8EEEB !important}
-[data-theme="dark"] .eyebrow{color:#7A9A90 !important}
-[data-theme="dark"] .big-logo{color:#F2EFE8 !important}
-[data-theme="dark"] .subline{color:#8EA89B !important}
-[data-theme="dark"] .quote{color:#A8C0B5 !important}
-[data-theme="dark"] .quote-big{color:#F2EFE8 !important}
-[data-theme="dark"] .quote strong{color:#7A9A90 !important}
-[data-theme="dark"] .wrap::before{opacity:1 !important; background: radial-gradient(700px 400px at 12% 8%, #12211E 0%, transparent 55%), radial-gradient(600px 380px at 92% 18%, #0F1E1B 0%, transparent 58%), radial-gradient(500px 300px at 78% 92%, #1A2E29 0%, transparent 60%) !important}
-[data-theme="dark"] .hero-text h1{color:#F2EFE8 !important}
-[data-theme="dark"] .hero-text h1 em{color:#8EA89B !important}
-[data-theme="dark"] .lead{color:#B8CFC7 !important}
-[data-theme="dark"] .side-note{color:#C8D8D2 !important;background:#12211E !important;border-left-color:#C9B99A !important}
-[data-theme="dark"] .watch-card{background:linear-gradient(180deg,#13211E 0%,#0F1E1B 100%) !important;border-color:#2A3F38 !important; box-shadow:0 14px 36px rgba(0,0,0,0.35) !important}
-[data-theme="dark"] .watch-card::before{background:radial-gradient(circle, #1A2E29 0%, transparent 70%) !important; opacity:0.6 !important}
-[data-theme="dark"] .stat{background:#0A1512 !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .stat .lbl{color:#8EA89B !important}
-[data-theme="dark"] .stat .val{color:#F2EFE8 !important}
-[data-theme="dark"] .flow{color:#7A9A90 !important}
-[data-theme="dark"] .sec-label span{color:#8EA89B !important}
-[data-theme="dark"] .sec-label::after{background:linear-gradient(90deg,#2A3F38,transparent) !important}
-[data-theme="dark"] .comp{background:#12211E !important;border-color:#2A3F38 !important;box-shadow:0 4px 16px rgba(0,0,0,0.30) !important}
-[data-theme="dark"] .comp .ctitle h3{color:#F2EFE8 !important}
-[data-theme="dark"] .comp .ctitle p{color:#8EA89B !important}
-[data-theme="dark"] .comp.dark{background:linear-gradient(135deg,#0F241E 0%,#13211E 100%) !important}
-[data-theme="dark"] .cdesc{color:#B8CFC7 !important}
-[data-theme="dark"] .comp .tag{background:#C9B99A !important;color:#0A1512 !important}
-[data-theme="dark"] .info{background:#12211E !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .info h4{color:#F2EFE8 !important}
-[data-theme="dark"] .info h4::before{background:#C9B99A !important}
-[data-theme="dark"] .measures li{color:#C8D8D2 !important}
-[data-theme="dark"] .measures li::before{background:#3A5A52 !important}
-[data-theme="dark"] .mini-flow{background:#0A1512 !important;border-color:#2A3F38 !important}
-[data-theme="dark"] .mini-flow b{color:#F2EFE8 !important}
-[data-theme="dark"] .mini-flow span{color:#8EA89B !important}
-[data-theme="dark"] .mini-flow .arr{color:#C9B99A !important}
-/* FOOTER stays dark in both themes - fix white-on-white in dark mode */
-[data-theme="dark"] .footer{background:#0F241E !important;color:#E8EEEB !important;border-top:1px solid #1E342E !important}
-[data-theme="dark"] .foot-lbl{color:#A8C0B5 !important}
-[data-theme="dark"] .foot-names{color:#E8EEEB !important}
-[data-theme="dark"] .foot-names span+span::before{color:#5A7068 !important}
-[data-theme="dark"] .foot-logo{color:#F2EFE8 !important}
-[data-theme="dark"] .foot-sub{color:#A8C0B5 !important}
-/* LOGO stays white square on site in both themes as requested */
-#surpriseLogo{transition:background .3s, border-color .3s}
-[data-theme="dark"] #surpriseLogo{background:#fff !important; border-color:#EAE6DD !important; filter:none !important}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark2);-webkit-font-smoothing:antialiased}
@@ -353,10 +271,6 @@ a{ color:inherit; text-decoration:none}
     </div>
 
     <div style="display:flex;gap:10px;align-items:center">
-      <button id="themeBtn" type="button" class="theme-btn" aria-label="Toggle dark mode" title="Dark / Light" onclick="(function(){var h=document.documentElement,b=document.body;var c=h.getAttribute('data-theme');var n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);b&&b.setAttribute('data-theme',n);try{localStorage.setItem('wakewell_theme',n);}catch(e){}var s=document.querySelector('#themeBtn .icon-sun'),m=document.querySelector('#themeBtn .icon-moon');if(s&&m){if(n==='dark'){s.style.display='none';m.style.display='block';}else{s.style.display='block';m.style.display='none';}}})()">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
       <div class="lang" role="tablist" aria-label="Language">
         <button class="active" data-lang="az">AZE</button>
         <button data-lang="en">EN</button>
@@ -590,34 +504,6 @@ function setLang(l){
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 let saved=null; try{ saved=localStorage.getItem('wakewell_lang'); }catch(e){}
 if(saved&&dict[saved]) setLang(saved); else setLang('az');
-// THEME - dark / light - robust
-function initTheme(){
-  try{
-    const btn=document.getElementById('themeBtn');
-    if(!btn){ console.warn('themeBtn not found'); return; }
-    const sun=btn.querySelector('.icon-sun'), moon=btn.querySelector('.icon-moon');
-    function apply(t){
-      document.documentElement.setAttribute('data-theme', t);
-      try{ localStorage.setItem('wakewell_theme', t); }catch(e){}
-      if(sun && moon){
-        if(t==='dark'){ sun.style.display='none'; moon.style.display='block'; }
-        else { sun.style.display='block'; moon.style.display='none'; }
-      }
-      // also update body for CSS fallback
-      document.body.setAttribute('data-theme', t);
-    }
-    let stored=null; try{ stored=localStorage.getItem('wakewell_theme'); }catch(e){}
-    let prefersDark=false; try{ prefersDark=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; }catch(e){}
-    apply(stored || (prefersDark ? 'dark' : 'light'));
-    btn.addEventListener('click', function(){
-      const cur=document.documentElement.getAttribute('data-theme');
-      apply(cur==='dark' ? 'light' : 'dark');
-    });
-    // also allow keyboard
-    btn.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); btn.click(); }});
-  }catch(e){ console.error('theme init failed', e); }
-}
-if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initTheme); } else { initTheme(); }
 // SURPRISE: extend i18n
 Object.assign(dict.az,{demo_t:"Canlı simulyasiya — bir gecənin hekayəsi",demo_p:"Saatın üzərinə toxun — qrafik canlı yenilənəcək. 3 gecə, 3 fərqli yuxu.",n1:"Gecə 1 — ideal",n2:"Gecə 2 — narahat",n3:"Gecə 3 — REM gecikməsi",legend_rem:"REM",legend_deep:"Dərin",legend_hr:"HRV dalğası"});
 Object.assign(dict.en,{demo_t:"Live simulation — story of a night",demo_p:"Tap the watch — the hypnogram animates. 3 nights, 3 different sleeps.",n1:"Night 1 — ideal",n2:"Night 2 — restless",n3:"Night 3 — late REM",legend_rem:"REM",legend_deep:"Deep",legend_hr:"HRV wave"});
@@ -658,33 +544,6 @@ document.querySelector('.watch-card').addEventListener('click',()=>{
   document.querySelectorAll('.demo-btns button[data-night]').forEach(b=>b.classList.toggle('active', b.dataset.night==cur));
 });
 window.addEventListener('resize',()=>drawHyp(cur));
-</script>
-<script>
-// Fallback theme init - runs even if main script failed
-(function(){
-  try{
-    var btn=document.getElementById('themeBtn');
-    if(!btn) return;
-    var sun=btn.querySelector('.icon-sun'), moon=btn.querySelector('.icon-moon');
-    function apply(t){
-      document.documentElement.setAttribute('data-theme',t);
-      if(document.body) document.body.setAttribute('data-theme',t);
-      try{localStorage.setItem('wakewell_theme',t);}catch(e){}
-      if(sun&&moon){ if(t==='dark'){sun.style.display='none';moon.style.display='block';}else{sun.style.display='block';moon.style.display='none';} }
-    }
-    var stored=null; try{stored=localStorage.getItem('wakewell_theme');}catch(e){}
-    var prefersDark=false; try{prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
-    if(!stored){ apply(prefersDark?'dark':'light'); } else { apply(stored); }
-    // ensure button works even if earlier listener failed - inline onclick already does, this is extra
-    if(!btn.getAttribute('data-bound')){
-      btn.addEventListener('click', function(){
-        var cur=document.documentElement.getAttribute('data-theme');
-        apply(cur==='dark'?'light':'dark');
-      });
-      btn.setAttribute('data-bound','1');
-    }
-  }catch(e){ console.error('fallback theme failed',e); }
-})();
 </script>
 </body>
 </html>
