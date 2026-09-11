@@ -286,12 +286,15 @@ body{background:transparent}
   .measures{grid-template-columns:1fr}
 }
 @media(max-width:640px){
-  .nav-inner{padding:10px 14px;gap:10px}
-  .brand img{width:36px !important;height:36px !important}
-  .brand-logo{font-size:24px}
-  .brand-sub{font-size:7px;letter-spacing:0.12em}
-  .lang button{padding:6px 9px;font-size:10px}
-  .theme-btn{width:34px;height:34px}
+  .nav-inner{padding:8px 10px;gap:6px;flex-wrap:wrap}
+  .brand{flex:1;min-width:0}
+  .brand img{width:32px !important;height:32px !important}
+  .brand-logo{font-size:20px;white-space:nowrap}
+  .brand-sub{font-size:6.5px;letter-spacing:0.10em;white-space:nowrap}
+  .lang{flex-shrink:0}
+  .lang button{padding:5px 8px;font-size:9px}
+  .theme-btn{width:32px;height:32px;flex-shrink:0}
+  .hamburger{flex-shrink:0}
   .top-head{padding:16px 14px 0;gap:12px}
   .eyebrow{font-size:8px;letter-spacing:0.14em}
   .big-logo{font-size:34px}
@@ -299,14 +302,14 @@ body{background:transparent}
   .quote{font-size:14px}
   .quote-big{font-size:15px}
   html,body{overflow-x:hidden}
-  .wrap{padding:0 0 0 14px; overflow-x:hidden}
+  .wrap{padding:0 10px; overflow-x:hidden}
   .hero{padding:16px 0 8px 0;gap:16px}
-  .hero-visual{justify-content:flex-start}
-  .top-head{padding:16px 0 0 0}
+  .hero-visual{justify-content:center}
+  .top-head{padding:16px 10px 0 10px}
   .hero-text h1{font-size:27px;line-height:1.1}
   .lead{font-size:13px;line-height:1.65}
   .side-note{font-size:12px;padding:10px 12px}
-  .watch-card{width:100%;max-width:none;margin-right:0;padding:16px}
+  .watch-card{width:100%;max-width:340px;margin:0 auto;padding:16px}
   .watch-card svg{max-width:100%;height:auto}
   .stats{gap:8px}
   .stat{padding:10px 12px}
