@@ -59,7 +59,13 @@
 [data-theme="dark"] .quote{color:#A8C0B5}
 [data-theme="dark"] .quote-big{color:#F2EFE8}
 [data-theme="dark"] .quote strong{color:#7A9A90}
-[data-theme="dark"] .wrap::before{opacity:0.26; animation:bgDriftDark 32s ease-in-out infinite}
+[data-theme="dark"] .wrap::before{opacity:0.10}
+[data-theme="dark"] .cloud{opacity:0.18; filter:blur(24px)}
+[data-theme="dark"] .cloud-1{background:radial-gradient(ellipse at center, rgba(255,255,255,0.22) 0%, transparent 70%)}
+[data-theme="dark"] .cloud-2{background:radial-gradient(ellipse at center, rgba(220,235,230,0.18) 0%, transparent 70%)}
+[data-theme="dark"] .cloud-3{background:radial-gradient(ellipse at center, rgba(255,240,220,0.16) 0%, transparent 70%)}
+[data-theme="dark"] .cloud-4{background:radial-gradient(ellipse at center, rgba(255,255,255,0.20) 0%, transparent 70%)}
+[data-theme="dark"] .cloud-5{background:radial-gradient(ellipse at center, rgba(220,235,230,0.15) 0%, transparent 70%)}
 [data-theme="dark"] .hero-text h1{color:#F2EFE8}
 [data-theme="dark"] .lead{color:#B8CFC7}
 [data-theme="dark"] .side-note{color:#C8D8D2;background:#12211E;border-left-color:#2A3F38}
@@ -167,9 +173,19 @@ a{ color:inherit; text-decoration:none}
 .strip-item .si-icon{width:36px;height:36px;border-radius:10px;background:#0F241E;color:#C9B99A;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .strip-item h4{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--dark);margin-bottom:4px}
 .strip-item p{font-size:11.5px;line-height:1.5;color:#5A6A66}
-@keyframes bgDrift{0%,100%{transform:translate(0,0)}25%{transform:translate(12px,10px)}50%{transform:translate(-10px,14px)}75%{transform:translate(-12px,-8px)}}
-@keyframes bgDriftDark{0%,100%{transform:translate(0,0)}25%{transform:translate(14px,12px)}50%{transform:translate(-12px,16px)}75%{transform:translate(-14px,-10px)}}
-.wrap::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.28;z-index:-1;background: radial-gradient(480px 300px at 14% 16%, #EAE6DF 0%, transparent 58%), radial-gradient(320px 200px at 88% 18%, #E8EEEB 0%, transparent 60%), radial-gradient(220px 140px at 52% 86%, #F0E8DD 0%, transparent 62%), radial-gradient(300px 190px at 28% 42%, #EAE6DF 0%, transparent 60%), radial-gradient(200px 130px at 76% 64%, #E8EEEB 0%, transparent 62%);animation:bgDrift 28s ease-in-out infinite}
+.wrap::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.18;z-index:-1;background: radial-gradient(420px 280px at 50% 50%, #EAE6DF 0%, transparent 65%)}
+.bg-clouds{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.cloud{position:absolute;border-radius:50%;filter:blur(22px);opacity:0.32}
+.cloud-1{width:480px;height:300px;left:10%;top:14%;background:radial-gradient(ellipse at center, #EAE6DF 0%, transparent 70%); animation:drift1 26s ease-in-out infinite}
+.cloud-2{width:320px;height:200px;left:78%;top:12%;background:radial-gradient(ellipse at center, #E8EEEB 0%, transparent 70%); animation:drift2 32s ease-in-out infinite}
+.cloud-3{width:220px;height:140px;left:42%;top:82%;background:radial-gradient(ellipse at center, #F0E8DD 0%, transparent 70%); animation:drift3 29s ease-in-out infinite}
+.cloud-4{width:300px;height:190px;left:22%;top:38%;background:radial-gradient(ellipse at center, #EAE6DF 0%, transparent 70%); animation:drift4 35s ease-in-out infinite}
+.cloud-5{width:200px;height:130px;left:68%;top:58%;background:radial-gradient(ellipse at center, #E8EEEB 0%, transparent 70%); animation:drift5 24s ease-in-out infinite}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}25%{transform:translate(60px,30px) scale(1.05)}50%{transform:translate(-40px,50px) scale(0.95)}75%{transform:translate(-30px,-20px) scale(1.02)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}20%{transform:translate(-50px,40px) scale(1.08)}45%{transform:translate(-80px,-30px) scale(0.92)}70%{transform:translate(30px,-50px) scale(1.04)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift3{0%{transform:translate(0,0) scale(1)}30%{transform:translate(40px,-30px) scale(1.06)}60%{transform:translate(-60px,-40px) scale(0.94)}85%{transform:translate(20px,30px) scale(1.03)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift4{0%{transform:translate(0,0) scale(1)}25%{transform:translate(-40px,50px) scale(1.07)}55%{transform:translate(70px,20px) scale(0.93)}80%{transform:translate(30px,-40px) scale(1.05)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift5{0%{transform:translate(0,0) scale(1)}20%{transform:translate(30px,-40px) scale(1.09)}50%{transform:translate(50px,30px) scale(0.91)}75%{transform:translate(-20px,40px) scale(1.02)}100%{transform:translate(0,0) scale(1)}}
 
 /* WRAP */
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
@@ -268,6 +284,13 @@ a{ color:inherit; text-decoration:none}
 </style>
 </head>
 <body>
+<div class="bg-clouds" aria-hidden="true">
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="cloud cloud-4"></div>
+  <div class="cloud cloud-5"></div>
+</div>
 
 <nav class="nav">
   <div class="nav-inner">
