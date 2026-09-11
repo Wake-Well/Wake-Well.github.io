@@ -69,8 +69,8 @@
 [data-theme="dark"] .hero-text h1{color:#F2EFE8}
 [data-theme="dark"] .lead{color:#B8CFC7}
 [data-theme="dark"] .side-note{color:#C8D8D2;background:#12211E;border-left-color:#2A3F38}
-[data-theme="dark"] .watch-card{background:linear-gradient(180deg,#12211E 0%,#0F1E1B 100%);border-color:#2A3F38}
-[data-theme="dark"] .stat{background:#0A1512;border-color:#2A3F38}
+[data-theme="dark"] .watch-card{background:rgba(18,33,30,0.48) !important;backdrop-filter:blur(14px) !important;-webkit-backdrop-filter:blur(14px) !important;border-color:rgba(42,63,56,0.55) !important}
+[data-theme="dark"] .stat{background:rgba(10,21,18,0.42) !important;backdrop-filter:blur(8px) !important;-webkit-backdrop-filter:blur(8px) !important;border-color:rgba(42,63,56,0.5) !important;opacity:0.88 !important}
 [data-theme="dark"] .stat .val{color:#fff}
 [data-theme="dark"] .flow{color:#7A9A90}
 [data-theme="dark"] .sec-label span{color:#7A9A90}
@@ -199,10 +199,10 @@ body{background:transparent}
 .lead{font-size:14px;line-height:1.7;color:#3D4E48;margin-top:14px}
 .side-note{margin-top:14px;font-size:12.5px;line-height:1.6;color:#42524E;border-left:3px solid #B9C9C1;padding:10px 14px;background:#F9F8F6;border-radius:0 10px 10px 0}
 .hero-visual{display:flex;justify-content:center}
-.watch-card{width:360px;background:linear-gradient(180deg,#FFFFFF 0%,#F7F3ED 100%);border:1.5px solid #EAE6DD;border-radius:24px;box-shadow:0 14px 36px rgba(15,36,30,0.08),0 2px 8px rgba(0,0,0,0.04);padding:22px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}
-.watch-card::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,#E8F0EC 0%,transparent 70%);opacity:0.8}
+.watch-card{width:360px;background:rgba(255,255,255,0.52);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1.5px solid rgba(234,230,221,0.65);border-radius:24px;box-shadow:0 14px 36px rgba(15,36,30,0.08),0 2px 8px rgba(0,0,0,0.04);padding:22px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}
+.watch-card::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,#E8F0EC 0%,transparent 70%);opacity:0.32}
 .stats{width:100%;display:flex;flex-direction:column;gap:10px;margin-top:12px;position:relative;z-index:2}
-.stat{ background:#fff;border:1.4px solid #EAE6DD;border-radius:14px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.stat{ background:rgba(255,255,255,0.58);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1.4px solid rgba(234,230,221,0.55);border-radius:14px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;opacity:0.92}
 .stat .lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8FA39A;font-weight:600}
 .stat .val{font-size:17px;font-weight:700;color:var(--dark)}
 .flow{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#9AA8A2;font-weight:700;margin-top:10px;text-align:center}
@@ -290,7 +290,7 @@ body{background:transparent}
   .brand{flex:1;min-width:0}
   .brand img{width:32px !important;height:32px !important}
   .brand-logo{font-size:20px;white-space:nowrap}
-  .brand-sub{font-size:6.5px;letter-spacing:0.10em;white-space:nowrap}
+  .brand-sub{font-size:6.5px;letter-spacing:0.10em;white-space:normal;line-height:1.2}
   .lang{flex-shrink:0}
   .lang button{padding:5px 8px;font-size:9px}
   .theme-btn{width:32px;height:32px;flex-shrink:0}
@@ -336,6 +336,11 @@ body{background:transparent}
   .cloud-3{width:160px;height:100px}
   .cloud-4{width:200px;height:130px}
   .cloud-5{width:140px;height:90px}
+  /* phone - more transparent windows so white clouds show through */
+  .watch-card, .comp, .info, .side-note{background:rgba(255,255,255,0.38) !important; backdrop-filter:blur(10px) !important; -webkit-backdrop-filter:blur(10px) !important}
+  .stat{background:rgba(255,255,255,0.48) !important; opacity:0.88 !important}
+  [data-theme="dark"] .watch-card, [data-theme="dark"] .comp, [data-theme="dark"] .info, [data-theme="dark"] .side-note{background:rgba(18,33,30,0.38) !important}
+  [data-theme="dark"] .stat{background:rgba(10,21,18,0.32) !important}
 }
 @media(max-width:380px){
   .big-logo{font-size:28px}
@@ -360,7 +365,7 @@ body{background:transparent}
       <img src="logo.png" width="44" height="44" alt="WakeWell logo" style="border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);background:#fff;padding:4px" id="surpriseLogo">
       <div>
         <div class="brand-logo" id="surpriseText">Wake<span>Well</span></div>
-        <div class="brand-sub" data-i18n="nav_sub">DIY Ağıllı Saat — Bio-Synch Texnologiyası</div>
+        <div class="brand-sub" data-i18n="nav_sub">Bio-Synch Texnologiyası</div>
       </div>
     </div>
 
@@ -593,7 +598,7 @@ body{background:transparent}
 <script>
 const dict={
 az:{
-  nav_sub:"DIY Ağıllı Saat — Bio-Synch Texnologiyası",
+  nav_sub:"Bio-Synch Texnologiyası",
   eyebrow:"Tələbə İnnovasiya Layihəsi — DIY Ağıllı Saat",
   hero_tagline:"Yuxunu anlamaq üçün ağıllı bilərzik · Bio-Synch Texnologiyası",
   strip1_t:"Elmi əsas",strip1_p:"HRV + hərəkət birlikdə — tək siqnal yox, kombinasiya analizi.",
@@ -620,7 +625,7 @@ az:{
  foot_lbl:"Layihə Müəllifləri"
 },
 en:{
- nav_sub:"DIY Smart Watch — Bio-Synch Technology",
+ nav_sub:"Bio-Synch Technology",
  eyebrow:"Student Innovation Project — DIY Smart Watch",
  hero_tagline:"Smart bracelet to understand your sleep · Bio-Synch Technology",
  strip1_t:"Science-based",strip1_p:"HRV + motion together — not single signal, combined analysis.",
